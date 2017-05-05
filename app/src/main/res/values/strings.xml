@@ -5,5 +5,21 @@
     <string name="title_tab_history">History</string>
     <string name="send">Send</string>
     <string name="send_message">Send Message</string>
+    <string name="text_message_otp">Hi, Your Otp is %1$d </string>
     <string name="title_tab_contacts">Contacts</string>
+
+    <string name="title_success_dialog">Success</string>
+    <string name="messsage_success_dialog">Message was sent successfully</string>
+
+
+    <string name="title_failure_dialog">Failure</string>
+    <string name="messsage_failure_dialog">Message could not be sent. Please try again.</string>
+
+    <string name="done">Done</string>
+    <string name="cancel">Cancel</string>
+    <string name="retry">Retry</string>
+
+    <string name="no_messages_sent">No Messages Sent</string>
+    <string name="message_label">Message:</string>
+
 </resources>

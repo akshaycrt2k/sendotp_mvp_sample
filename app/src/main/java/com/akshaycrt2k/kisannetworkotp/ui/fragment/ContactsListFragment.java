@@ -27,6 +27,8 @@ import butterknife.ButterKnife;
 
 public class ContactsListFragment extends Fragment implements ContactsListContract.View{
 
+    public static final String TAG = ContactsListFragment.class.getSimpleName();
+
     ContactsListContract.Presenter presenter;
     ProgressDialog progressDialog;
     ContactListAdapter adapter;

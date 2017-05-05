@@ -1,6 +1,7 @@
 package com.akshaycrt2k.kisannetworkotp.ui.adapter;
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import com.akshaycrt2k.kisannetworkotp.R;
 import com.akshaycrt2k.kisannetworkotp.data.model.Message;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 import butterknife.BindView;
@@ -23,7 +25,7 @@ import butterknife.ButterKnife;
 
 public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHolder> {
 
-    private ArrayList<Message> messages;
+    private List<Message> messages;
 
 
     @Override
@@ -33,7 +35,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
         return new ViewHolder(view);
     }
 
-    public void setMessages(ArrayList<Message> messages) {
+    public void setMessages(List<Message> messages) {
         this.messages = messages;
         notifyDataSetChanged();
     }
@@ -41,9 +43,11 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         Message message = messages.get(position);
+
+        Log.d("bind", "Message \nname: "+message.getRecipient().getName()+"\notp: "+message.getOtp()+"\ndateTime: "+message.getTimestamp());
         holder.textViewContactName.setText(message.getRecipient().getName());
-        holder.textViewOtp.setText(message.getOtp());
-        holder.textViewTimestamp.setText(message.getTimestamp().format(Constants.DATE_TIME_FORMAT_MESSAGES, Locale.getDefault() ));
+        holder.textViewOtp.setText(message.getOtp()+"");
+        holder.textViewTimestamp.setText(message.getTimestamp().format(Constants.DATE_TIME_FORMAT_MESSAGES, Locale.getDefault()));
     }
 
     @Override

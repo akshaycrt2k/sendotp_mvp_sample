@@ -10,10 +10,15 @@ import com.akshaycrt2k.kisannetworkotp.ui.BaseView;
 
 public interface MessageContract {
     interface View extends BaseView<Presenter> {
-
+        void showProgress(boolean show);
+        void showSuccessDialog();
+        void showFailureDialog();
+        void setOtp(int otp);
+        String getMessage();
     }
 
     interface Presenter extends BasePresenter {
-
+        void onSend();
+        void onDone();
     }
 }

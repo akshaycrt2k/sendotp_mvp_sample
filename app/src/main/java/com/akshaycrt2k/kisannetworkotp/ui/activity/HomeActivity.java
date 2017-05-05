@@ -17,9 +17,9 @@ import com.akshaycrt2k.kisannetworkotp.Constants;
 import com.akshaycrt2k.kisannetworkotp.R;
 import com.akshaycrt2k.kisannetworkotp.dagger.component.DaggerHomeComponent;
 import com.akshaycrt2k.kisannetworkotp.dagger.module.ContactsListModule;
-import com.akshaycrt2k.kisannetworkotp.dagger.module.ContactsRepositoryModule;
+import com.akshaycrt2k.kisannetworkotp.dagger.module.DataRepositoryModule;
 import com.akshaycrt2k.kisannetworkotp.dagger.module.HistoryModule;
-import com.akshaycrt2k.kisannetworkotp.data.ContactsRepository;
+import com.akshaycrt2k.kisannetworkotp.data.DataRepository;
 import com.akshaycrt2k.kisannetworkotp.data.model.Contact;
 import com.akshaycrt2k.kisannetworkotp.event.ContactSelectedEvent;
 import com.akshaycrt2k.kisannetworkotp.ui.fragment.ContactsListFragment;
@@ -69,9 +69,11 @@ public class HomeActivity extends AppCompatActivity {
         DaggerHomeComponent.builder()
                 .contactsListModule(new ContactsListModule(contactsListFragment))
                 .historyModule(new HistoryModule(historyFragment))
-                .contactsRepositoryModule(new ContactsRepositoryModule(new ContactsRepository(getApplicationContext())))
+                .dataRepositoryModule(new DataRepositoryModule(new DataRepository(getApplicationContext())))
                 .build()
                 .inject(this);
+
+
 
         setup();
     }
@@ -91,6 +93,7 @@ public class HomeActivity extends AppCompatActivity {
     private void setup() {
         setupToolbar();
         setupViewPager();
+
     }
 
     private void setupToolbar() {

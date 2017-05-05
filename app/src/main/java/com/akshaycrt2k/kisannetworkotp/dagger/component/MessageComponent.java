@@ -1,5 +1,7 @@
 package com.akshaycrt2k.kisannetworkotp.dagger.component;
 
+import com.akshaycrt2k.kisannetworkotp.dagger.module.ApiServiceModule;
+import com.akshaycrt2k.kisannetworkotp.dagger.module.ContactDataModule;
 import com.akshaycrt2k.kisannetworkotp.dagger.module.MessageModule;
 import com.akshaycrt2k.kisannetworkotp.ui.activity.MessageActivity;
 
@@ -10,7 +12,7 @@ import dagger.Component;
  * Contact: akshaycrt2k@gmail.com
  */
 
-@Component(modules = {MessageModule.class})
+@Component(modules = {MessageModule.class, ApiServiceModule.class, ContactDataModule.class})
 public interface MessageComponent {
     void inject(MessageActivity activity);
 }

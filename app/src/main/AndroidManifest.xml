@@ -2,6 +2,8 @@
 
     package="com.akshaycrt2k.kisannetworkotp">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".KisanNetworkApplication"
         android:allowBackup="true"
@@ -19,7 +21,12 @@
             android:value="1" />
         <meta-data
             android:name="AA_MODELS"
-            android:value="com.akshaycrt2k.kisannetwork.data.model.Message" />
+            android:value="com.akshaycrt2k.kisannetworkotp.data.model.Message" />
+
+        <meta-data
+            android:name="AA_SERIALIZERS"
+            android:value="com.akshaycrt2k.kisannetworkotp.serializers.ContactSerializer,
+            com.akshaycrt2k.kisannetworkotp.serializers.DateTimeSerializer" />
 
         <activity
             android:screenOrientation="portrait"

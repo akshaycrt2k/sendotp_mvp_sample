@@ -1,6 +1,6 @@
 package com.akshaycrt2k.kisannetworkotp.ui.presenter;
 
-import com.akshaycrt2k.kisannetworkotp.data.ContactsRepository;
+import com.akshaycrt2k.kisannetworkotp.data.DataRepository;
 import com.akshaycrt2k.kisannetworkotp.data.model.Contact;
 import com.akshaycrt2k.kisannetworkotp.ui.contracts.ContactsListContract;
 
@@ -23,13 +23,13 @@ import rx.schedulers.Schedulers;
 public class ContactsListPresenter implements ContactsListContract.Presenter {
 
     private ContactsListContract.View view;
-    private ContactsRepository contactsRepository;
+    private DataRepository contactsRepository;
     Observable<ArrayList<Contact>> contactsObservable;
     Observer<ArrayList<Contact>> contactsObserver;
     Subscription subscription;
 
     @Inject
-    public ContactsListPresenter(ContactsListContract.View view, ContactsRepository contactsRepository) {
+    public ContactsListPresenter(ContactsListContract.View view, DataRepository contactsRepository) {
         this.view = view;
         this.contactsRepository = contactsRepository;
     }
