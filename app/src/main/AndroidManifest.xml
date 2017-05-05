@@ -1,0 +1,50 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+
+    package="com.akshaycrt2k.kisannetworkotp">
+
+    <application
+        android:name=".KisanNetworkApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <meta-data
+            android:name="AA_DB_NAME"
+            android:value="kisan.db" />
+        <meta-data
+            android:name="AA_DB_VERSION"
+            android:value="1" />
+        <meta-data
+            android:name="AA_MODELS"
+            android:value="com.akshaycrt2k.kisannetwork.data.model.Message" />
+
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".ui.activity.HomeActivity"
+            android:theme="@style/AppTheme" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+
+        </activity>
+
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".ui.activity.ContactDetailActivity"
+            android:parentActivityName=".ui.activity.HomeActivity"
+            android:theme="@style/AppTheme" />
+
+        <activity
+            android:screenOrientation="portrait"
+            android:parentActivityName=".ui.activity.ContactDetailActivity"
+            android:name=".ui.activity.MessageActivity"
+            android:theme="@style/AppTheme" />
+
+
+    </application>
+
+</manifest>

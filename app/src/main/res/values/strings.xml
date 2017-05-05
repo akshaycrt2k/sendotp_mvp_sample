@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Kisan Network Otp</string>
+    <string name="title_toolbar_home">Kisan Network</string>
+    <string name="title_toolbar_message">Send Otp</string>
+    <string name="title_tab_history">History</string>
+    <string name="send">Send</string>
+    <string name="send_message">Send Message</string>
+    <string name="title_tab_contacts">Contacts</string>
+</resources>
