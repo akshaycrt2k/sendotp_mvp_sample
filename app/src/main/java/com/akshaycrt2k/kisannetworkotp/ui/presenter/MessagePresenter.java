@@ -21,9 +21,10 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static android.content.ContentValues.TAG;
 
 /**
+ * Message Presenter
+ * -----------------------------------------
  * Created by Akshay Mundotia on 05-05-2017.
  * Contact: akshaycrt2k@gmail.com
  */
@@ -35,6 +36,12 @@ public class MessagePresenter implements MessageContract.Presenter {
     Contact contact;
     int otp = -1;
 
+    /**
+     *
+     * @param view for the Message Screen UI
+     * @param apiService Provides the network call methods
+     * @param contact data
+     */
     @Inject
     public MessagePresenter(MessageContract.View view, ApiService apiService, Contact contact) {
         this.view = view;
@@ -43,19 +50,35 @@ public class MessagePresenter implements MessageContract.Presenter {
     }
 
 
+    /**
+     * Sets Presenter
+     */
     @Inject
     public void setupListeners() {
         view.setPresenter(this);
     }
 
+    /**
+     * Create a random Otp and set it to the view
+     */
     @Override
     public void start() {
         Log.d("message", "start: ");
-        //Create Random 6 digit otp
-        otp = 100000 + (int)(new Random().nextFloat() * 899999);
+
+        otp = getRandomOtp();
 
         //Display Otp to User
         view.setOtp(otp);
+    }
+
+
+    /**
+     * Creates the random number to be used at an OTP
+     * @return 6 Digit random number
+     */
+    private int getRandomOtp() {
+        //Create Random 6 digit otp
+        return (100000 + (int)(new Random().nextFloat() * 899999));
     }
 
     @Override
@@ -63,6 +86,11 @@ public class MessagePresenter implements MessageContract.Presenter {
 
     }
 
+
+    /**
+     * Creates a Retrofit Call with the help of apiService
+     * and execute it in the background.
+     */
     @Override
     public void onSend() {
 
@@ -94,6 +122,10 @@ public class MessagePresenter implements MessageContract.Presenter {
 
     }
 
+
+    /**
+     * Raise an event to go to the home screen
+     */
     @Override
     public void onDone() {
         EventBus.getDefault().post(new LaunchHomeScreenEvent());

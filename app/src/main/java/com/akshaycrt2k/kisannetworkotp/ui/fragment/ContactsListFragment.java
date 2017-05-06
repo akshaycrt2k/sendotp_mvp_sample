@@ -58,6 +58,11 @@ public class ContactsListFragment extends Fragment implements ContactsListContra
         super.onPause();
     }
 
+
+    /**
+     * Here we set a LinearLayoutManager to our recyclerview
+     * and the ContactListAdapter
+     */
     private void setup() {
         progressDialog = new ProgressDialog(getContext());
         progressDialog.setCancelable(false);

@@ -16,6 +16,8 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
 /**
+ * Presenter for the Message History View
+ * ----------------------------------------
  * Created by Akshay Mundotia on 05-05-2017.
  * Contact: akshaycrt2k@gmail.com
  */
@@ -29,17 +31,31 @@ public class HistoryPresenter implements HistoryContract.Presenter {
 
     Subscription subscription;
 
+    /**
+     *
+     * @param view View Responsible for listing all the data
+     * @param dataRepository Repository provides us with the past messages
+     */
     @Inject
     public HistoryPresenter(HistoryContract.View view, DataRepository dataRepository) {
         this.view = view;
         this.dataRepository = dataRepository;
     }
 
+
+    /**
+     * Set the presenter to the view
+     */
     @Inject
     void setupListeners() {
         view.setPresenter(this);
     }
 
+
+    /**
+     * Start with loading the past messages from the repository in background.
+     * If there's no data then we show the empty message provided by the view
+     */
     @Override
     public void start() {
         messageObservable = Observable.fromCallable(new Callable<List<Message>>() {
@@ -83,6 +99,9 @@ public class HistoryPresenter implements HistoryContract.Presenter {
                 .subscribe(messageObserver);
     }
 
+    /**
+     * Unsubscribes to the observable subscription, in case the user leaves the screen
+     */
     @Override
     public void onDestroy() {
 

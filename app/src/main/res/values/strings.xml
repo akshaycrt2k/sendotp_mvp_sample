@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Kisan Network Otp</string>
+    <string name="app_name">KN Akshay</string>
     <string name="title_toolbar_home">Kisan Network</string>
     <string name="title_toolbar_message">Send Otp</string>
     <string name="title_tab_history">History</string>
@@ -21,5 +21,8 @@
 
     <string name="no_messages_sent">No Messages Sent</string>
     <string name="message_label">Message:</string>
+
+    <string name="about">About</string>
+    <string name="about_description">This app is built using MVP Pattern alongwith Dagger to help with DI.\nPlease find here all the libraries used for this project.</string>
 
 </resources>

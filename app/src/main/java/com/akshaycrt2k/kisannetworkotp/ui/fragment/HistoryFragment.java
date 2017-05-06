@@ -29,7 +29,6 @@ import butterknife.ButterKnife;
 
 public class HistoryFragment extends Fragment implements HistoryContract.View{
 
-    public static final String TAG = HistoryFragment.class.getSimpleName();
 
     HistoryContract.Presenter presenter;
     ProgressDialog progressDialog;

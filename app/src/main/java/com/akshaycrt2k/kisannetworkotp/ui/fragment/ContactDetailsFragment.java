@@ -29,6 +29,8 @@ public class ContactDetailsFragment extends Fragment implements ContactDetailCon
     @BindView(R.id.textViewNumber) TextView textViewNumber;
     ContactDetailContract.Presenter presenter;
 
+
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

@@ -58,6 +58,7 @@ public class MessageActivity extends AppCompatActivity {
 
         messageFragment = MessageFragment.newInstance();
 
+
         DaggerMessageComponent.builder()
                 .apiServiceModule(new ApiServiceModule(ApiClient.getApiService()))
                 .contactDataModule(new ContactDataModule(contact))
@@ -84,12 +85,18 @@ public class MessageActivity extends AppCompatActivity {
         super.onPause();
     }
 
+    /**
+     * Sets the Fragment to the framelayout and chains to setupToolbar
+     */
     private void setup() {
         setupToolbar();
         Utils.ReplaceFragment(this,messageFragment, MessageFragment.TAG,R.id.frameLayout,false,false);
     }
 
 
+    /**
+     * Here we use setDisplayHomeAsUpEnabled(true) to show the back button on the action bar
+     */
     private void setupToolbar() {
         ActionBar actionBar = getSupportActionBar();
         if(actionBar!=null) {
@@ -98,6 +105,11 @@ public class MessageActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * We consume the home button pressed event to make sure the transition animation and the flow is consistent
+     * @param item the menuItem selected by the user
+     * @return true if the event is consumed, false otherwise
+     */
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -111,6 +123,9 @@ public class MessageActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * Override onBackpressed to start the parent Activity ourselves
+     */
     @Override
     public void onBackPressed() {
         startActivity(new Intent(this,ContactDetailActivity.class).putExtra(Constants.KEY_CONTACT,contact));
@@ -118,7 +133,10 @@ public class MessageActivity extends AppCompatActivity {
         finish();
     }
 
-
+    /**
+     * Respond to this event, to launch the homescreen
+     * @param event raised to launch the homeActivity
+     */
     @Subscribe( threadMode = ThreadMode.MAIN)
     public void onLaunchHomeScreen(LaunchHomeScreenEvent event) {
         startActivity(new Intent(this,HomeActivity.class));

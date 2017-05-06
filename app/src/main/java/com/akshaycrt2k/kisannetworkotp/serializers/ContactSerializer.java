@@ -4,6 +4,10 @@ import com.activeandroid.serializer.TypeSerializer;
 import com.akshaycrt2k.kisannetworkotp.data.model.Contact;
 
 /**
+ * ContactSerializer
+ * Responsible for serializing Contact Object to String and vice versa
+ * This is required for us to save Contact as a Column in the Active Android DB
+ * ----------------------------------------------------------------------------
  * Created by Akshay Mundotia on 05-05-2017.
  * Contact: akshaycrt2k@gmail.com
  */
