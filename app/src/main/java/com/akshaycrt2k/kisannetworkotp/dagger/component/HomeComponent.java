@@ -8,6 +8,10 @@ import com.akshaycrt2k.kisannetworkotp.ui.activity.HomeActivity;
 import dagger.Component;
 
 /**
+ * HomeComponent
+ * Dagger uses this interface to generate its own implementations
+ * according to the modules provided in the notation
+ * --------------------------------------------------------------
  * Created by Akshay Mundotia on 04-05-2017.
  * Contact: akshaycrt2k@gmail.com
  */
